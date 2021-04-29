@@ -3,6 +3,7 @@
 namespace Chrisdicarlo\SimpleJetstreamMultitenancy\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Filesystem\Filesystem;
 
 class AddTenantIdColumnMigrationCommand extends Command
 {
@@ -14,7 +15,7 @@ class AddTenantIdColumnMigrationCommand extends Command
 
     public function __construct(Filesystem $files) {
         parent::__construct();
-        
+
         $this->files = $files;
     }
 
