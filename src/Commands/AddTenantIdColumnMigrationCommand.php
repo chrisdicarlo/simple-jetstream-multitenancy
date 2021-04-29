@@ -10,6 +10,14 @@ class AddTenantIdColumnMigrationCommand extends Command
 
     public $description = 'Create a migration to add the tenant_id column to the specified model table';
 
+    protected $files;
+
+    public function __construct(Filesystem $files) {
+        parent::__construct();
+        
+        $this->files = $files;
+    }
+
     public function handle()
     {
         $tenantModel = config('simple-jetstream-multitenancy.tenant_model');
