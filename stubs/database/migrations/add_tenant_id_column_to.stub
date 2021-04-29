@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -9,7 +10,13 @@ return new class extends Migration
     public function up()
     {
         Schema::table('MODEL_TABLE', function (Blueprint $table) {
-            $table->unsignedInteger('tenant_id')->nullable();
+            $model = $config['simple-jetstream-multitenancy.tenant_model'];
+            $tableName = with(new $model)->getTable();
+
+            $tenant_id_type = DB::getSchemaBuilder()
+                ->getColumnType($tableName, 'id') === 'bigint' ? 'unsignedBigInteger' : 'unsignedInteger';
+
+            $table->{$tenant_id_type}('tenant_id')->nullable();
             $table->foreign('tenant_id')->references('id')->on('TENANT_TABLE');
         });
     }
