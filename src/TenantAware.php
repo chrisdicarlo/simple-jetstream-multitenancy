@@ -1,5 +1,5 @@
 <?php
-namespace Chrisdicarlo\SimpleJetstreamMultitenancy\Models\Concerns;
+namespace Chrisdicarlo\SimpleJetstreamMultitenancy;
 
 trait TenantAware
 {

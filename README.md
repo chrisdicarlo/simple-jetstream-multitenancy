@@ -66,7 +66,7 @@ Lastly, add the ChrisDiCarlo\SimpleJetstreamMultitenancy\TenantAware trait to th
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Chrisdicarlo\SimpleJetstreamMultitenancy\Models\Concerns\TenantAware;
+use Chrisdicarlo\SimpleJetstreamMultitenancy\TenantAware;
 
 class Post extends Model
 {
