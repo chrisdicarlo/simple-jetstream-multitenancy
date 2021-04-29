@@ -18,6 +18,7 @@ class SimpleJetstreamMultitenancyServiceProvider extends PackageServiceProvider
         $package
             ->name('simple-jetstream-multitenancy')
             ->hasConfigFile()
-            ->hasCommand(InstallCommand::class);
+            ->hasCommand(InstallCommand::class)
+            ->hasCommand(AddTenantIdColumnMigrationCommand::class);
     }
 }

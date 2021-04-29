@@ -8,12 +8,11 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('simple-jetstream-multitenancy_table', function (Blueprint $table) {
-            $table->id();
+        Schema::table('MODEL_TABLE', function (Blueprint $table) {
 
-            // add fields
-
-            $table->timestamps();
+            $table->unsignedInteger('tenant_id')->nullable();
+            
+            $table->foreign('tenant_id')->references('id')->on('TENANT_TABLE');
         });
     }
 }
