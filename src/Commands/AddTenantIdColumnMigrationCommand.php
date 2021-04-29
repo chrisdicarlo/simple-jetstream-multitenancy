@@ -29,7 +29,7 @@ class AddTenantIdColumnMigrationCommand extends Command
         $modelTable = with(new $model)->getTable();
         
         $fullPath = $this->createBaseMigration($modelTable);
-        $this->files->put($fullPath, $this->files->get(__DIR__.'/../../../stubs/database/migrations/add_tenant_id_column_to.stub'));
+        $this->files->put($fullPath, $this->files->get(__DIR__.'/../../stubs/database/migrations/add_tenant_id_column_to.stub'));
 
         $this->replaceInFile('TENANT_TABLE', $tenanTable, $fullPath);
         $this->replaceInFile('MODEL_TABLE', $modelTable, $fullPath);
