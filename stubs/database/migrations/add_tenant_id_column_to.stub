@@ -14,7 +14,7 @@ return new class extends Migration
         });
     }
 
-    public functon down()
+    public function down()
     {
         Schema::table('MODEL_TABLE', function (Blueprint $table) {
             $table->dropForeign('tenant_id');
