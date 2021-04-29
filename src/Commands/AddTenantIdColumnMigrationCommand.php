@@ -4,7 +4,7 @@ namespace Chrisdicarlo\SimpleJetstreamMultitenancy\Commands;
 
 use Illuminate\Console\Command;
 
-class InstallCommand extends Command
+class AddTenantIdColumnMigrationCommand extends Command
 {
     public $signature = 'sjm:migration {model: Add the tenant_id column to the model table}';
 
