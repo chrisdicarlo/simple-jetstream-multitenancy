@@ -14,7 +14,6 @@ class InstallCommand extends Command
     {
         if(! file_exists(config_path('simple-jetstream-multitenancy.php'))) {
             $this->call('vendor:publish --tag=simple-jetstream-multitenancy-config');
-        }
 
         $this->comment('All done');
     }
