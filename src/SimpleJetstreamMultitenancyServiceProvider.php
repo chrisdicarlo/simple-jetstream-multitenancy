@@ -2,9 +2,10 @@
 
 namespace Chrisdicarlo\SimpleJetstreamMultitenancy;
 
-use Chrisdicarlo\SimpleJetstreamMultitenancy\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Chrisdicarlo\SimpleJetstreamMultitenancy\Commands\InstallCommand;
+use Chrisdicarlo\SimpleJetstreamMultitenancy\Commands\AddTenantIdColumnMigrationCommand;
 
 class SimpleJetstreamMultitenancyServiceProvider extends PackageServiceProvider
 {
