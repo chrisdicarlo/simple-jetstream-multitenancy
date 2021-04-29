@@ -12,7 +12,8 @@ class AddTenantIdColumnMigrationCommand extends Command
 
     protected $files;
 
-    public function __construct(Filesystem $files) {
+    public function __construct(Filesystem $files)
+    {
         parent::__construct();
         
         $this->files = $files;
