@@ -9,10 +9,16 @@ return new class extends Migration
     public function up()
     {
         Schema::table('MODEL_TABLE', function (Blueprint $table) {
-
             $table->unsignedInteger('tenant_id')->nullable();
-            
             $table->foreign('tenant_id')->references('id')->on('TENANT_TABLE');
         });
     }
-}
+
+    public functon down()
+    {
+        Schema::table('MODEL_TABLE', function (Blueprint $table) {
+            $table->dropForeign('tenant_id');
+            $table->dropColumn('tenant_id');
+        });
+    }
+};
