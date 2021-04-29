@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 
 class AddTenantIdColumnMigrationCommand extends Command
 {
-    public $signature = 'sjm:migration {model: Add the tenant_id column to the model table}';
+    public $signature = 'sjm:migration {model : Add the tenant_id column to the model table}';
 
     public $description = 'Create a migration to add the tenant_id column to the specified model table';
 
