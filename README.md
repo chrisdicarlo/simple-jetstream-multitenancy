@@ -15,30 +15,65 @@ You can install the package via composer:
 composer require chrisdicarlo/simple-jetstream-multitenancy
 ```
 
-You can publish and run the migrations with:
+And then run the install command.  This will prompt you to specify which model is the tenant and publish the config file:
 
 ```bash
-php artisan vendor:publish --provider="Chrisdicarlo\SimpleJetstreamMultitenancy\SimpleJetstreamMultitenancyServiceProvider" --tag="simple-jetstream-multitenancy-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-```bash
-php artisan vendor:publish --provider="Chrisdicarlo\SimpleJetstreamMultitenancy\SimpleJetstreamMultitenancyServiceProvider" --tag="simple-jetstream-multitenancy-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
+php artisan sjm:install
 ```
 
 ## Usage
 
+You can create a migration to add the appropriate tenant columns to tables that should be tenant aware:
+
+```bash
+php artisan sjm:migration App\\Models\\Post
+```
+
+This will generate a migration file that looks like this:
+
 ```php
-$simple-jetstream-multitenancy = new Chrisdicarlo\SimpleJetstreamMultitenancy();
-echo $simple-jetstream-multitenancy->echoPhrase('Hello, Spatie!');
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        Schema::table('posts', function (Blueprint $table) {
+            $table->unsignedBigInteger('tenant_id')->nullable();
+            $table->foreign('tenant_id')->references('id')->on('users');
+        });
+    }
+
+    public function down()
+    {
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign('tenant_id');
+            $table->dropColumn('tenant_id');
+        });
+    }
+};
+```
+
+Lastly, add the ChrisDiCarlo\SimpleJetstreamMultitenancy\TenantAware trait to the applicable model:
+
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Chrisdicarlo\SimpleJetstreamMultitenancy\Models\Concerns\TenantAware;
+
+class Post extends Model
+{
+    ...
+    use TenantAware;
+    ...
+}
 ```
 
 ## Testing
