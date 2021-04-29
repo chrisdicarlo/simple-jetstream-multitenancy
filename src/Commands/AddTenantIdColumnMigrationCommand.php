@@ -14,7 +14,9 @@ class AddTenantIdColumnMigrationCommand extends Command
     {
         $tenantModel = config('simple-jetstream-multitenancy.tenant_model');
         $tenanTable = with(new $tenantModel)->getTable();
-        $modelTable = with(new $this->argument('model'))->getTable();
+
+        $model = $this->argument('model');
+        $modelTable = with(new $model)->getTable();
         
         $fullPath = $this->createBaseMigration($modelTable);
         $this->files->put($fullPath, $this->files->get(__DIR__.'/../../../stubs/database/migrations/add_tenant_id_column_to.stub'));
