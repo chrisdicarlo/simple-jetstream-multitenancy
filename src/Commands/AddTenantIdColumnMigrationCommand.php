@@ -4,6 +4,8 @@ namespace Chrisdicarlo\SimpleJetstreamMultitenancy\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Facades\DB;
+
 
 class AddTenantIdColumnMigrationCommand extends Command
 {
@@ -31,8 +33,12 @@ class AddTenantIdColumnMigrationCommand extends Command
         $fullPath = $this->createBaseMigration($modelTable);
         $this->files->put($fullPath, $this->files->get(__DIR__.'/../../stubs/database/migrations/add_tenant_id_column_to.stub'));
 
+        $tenantColumnType = DB::getSchemaBuilder()
+            ->getColumnType($tenanTable, 'id') === 'bigint' ? 'unsignedBigInteger' : 'unsignedInteger';
+
         $this->replaceInFile('TENANT_TABLE', $tenanTable, $fullPath);
         $this->replaceInFile('MODEL_TABLE', $modelTable, $fullPath);
+        $this->replaceInFile('TENANT_COLUMN_TYPE', $tenantColumnType, $fullPath);
 
         $this->comment('All done');
     }
