@@ -12,7 +12,6 @@ class InstallCommand extends Command
 
     public function handle()
     {
-        
         $this->comment('All done');
     }
 }
