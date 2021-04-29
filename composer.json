@@ -1,17 +1,17 @@
 {
-    "name": "vendor_slug/package_slug",
-    "description": ":package_description",
+    "name": "chrisdicarlo/simple-jetstream-multitenancy",
+    "description": "Simple multi-tenancy for Laravel Jetstream apps",
     "keywords": [
-        ":vendor_name",
+        "chrisdicarlo",
         "laravel",
-        "package_slug"
+        "simple-jetstream-multitenancy"
     ],
-    "homepage": "https://github.com/vendor_slug/package_slug",
+    "homepage": "https://github.com/chrisdicarlo/simple-jetstream-multitenancy",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Chris Di Carlo",
+            "email": "chris@dicarlosystems.ca",
             "role": "Developer"
         }
     ],
@@ -30,13 +30,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Chrisdicarlo\\SimpleJetstreamMultitenancy\\": "src",
+            "Chrisdicarlo\\SimpleJetstreamMultitenancy\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Chrisdicarlo\\SimpleJetstreamMultitenancy\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -50,10 +50,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Chrisdicarlo\\SimpleJetstreamMultitenancy\\SimpleJetstreamMultitenancyServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\SkeletonFacade"
+                "SimpleJetstreamMultitenancy": "Chrisdicarlo\\SimpleJetstreamMultitenancy\\SimpleJetstreamMultitenancyFacade"
             }
         }
     },

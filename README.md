@@ -1,25 +1,15 @@
-# :package_description
+# Simple multi-tenancy for Laravel Jetstream apps
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/vendor_slug/package_slug.svg?style=flat-square)](https://packagist.org/packages/vendor_slug/package_slug)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/vendor_slug/package_slug/run-tests?label=tests)](https://github.com/vendor_slug/package_slug/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/vendor_slug/package_slug/Check%20&%20fix%20styling?label=code%20style)](https://github.com/vendor_slug/package_slug/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/vendor_slug/package_slug.svg?style=flat-square)](https://packagist.org/packages/vendor_slug/package_slug)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/chrisdicarlo/simple-jetstream-multitenancy.svg?style=flat-square)](https://packagist.org/packages/chrisdicarlo/simple-jetstream-multitenancy)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/chrisdicarlo/simple-jetstream-multitenancy/run-tests?label=tests)](https://github.com/chrisdicarlo/simple-jetstream-multitenancy/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/chrisdicarlo/simple-jetstream-multitenancy/Check%20&%20fix%20styling?label=code%20style)](https://github.com/chrisdicarlo/simple-jetstream-multitenancy/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/chrisdicarlo/simple-jetstream-multitenancy.svg?style=flat-square)](https://packagist.org/packages/chrisdicarlo/simple-jetstream-multitenancy)
 
----
-This repo can be used as to scaffold a Laravel package. Follow these steps to get started:
-
-1. Press the "Use template" button at the top of this repo to create a new repo with the contents of this skeleton
-2. Run "./configure-skeleton.sh" to run a script that will replace all placeholders throughout all the files
-3. Remove this block of text.
-4. Have fun creating your package.
-5. If you need help creating a package, consider picking up our <a href="https://laravelpackage.training">Laravel Package Training</a> video course.
----
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Simple package to support multi-tenancy in Laravel Jetstream using a trait, with some development niceties thrown in.
 
 ## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/:package_name.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/:package_name)
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/simple-jetstream-multitenancy.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/simple-jetstream-multitenancy)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
@@ -30,19 +20,19 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via composer:
 
 ```bash
-composer require vendor_slug/package_slug
+composer require chrisdicarlo/simple-jetstream-multitenancy
 ```
 
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --provider="VendorName\Skeleton\SkeletonServiceProvider" --tag="package_slug-migrations"
+php artisan vendor:publish --provider="Chrisdicarlo\SimpleJetstreamMultitenancy\SimpleJetstreamMultitenancyServiceProvider" --tag="simple-jetstream-multitenancy-migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="VendorName\Skeleton\SkeletonServiceProvider" --tag="package_slug-config"
+php artisan vendor:publish --provider="Chrisdicarlo\SimpleJetstreamMultitenancy\SimpleJetstreamMultitenancyServiceProvider" --tag="simple-jetstream-multitenancy-config"
 ```
 
 This is the contents of the published config file:
@@ -55,8 +45,8 @@ return [
 ## Usage
 
 ```php
-$skeleton = new VendorName\Skeleton();
-echo $skeleton->echoPhrase('Hello, Spatie!');
+$simple-jetstream-multitenancy = new Chrisdicarlo\SimpleJetstreamMultitenancy();
+echo $simple-jetstream-multitenancy->echoPhrase('Hello, Spatie!');
 ```
 
 ## Testing
@@ -79,7 +69,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [Chris Di Carlo](https://github.com/chrisdicarlo)
 - [All Contributors](../../contributors)
 
 ## License
