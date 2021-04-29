@@ -12,7 +12,7 @@ class InstallCommand extends Command
 
     public function handle()
     {
-        if(! file_exists(config_path('simple-jetstream-multitenancy.php'))) {
+        if (! file_exists(config_path('simple-jetstream-multitenancy.php'))) {
             $this->call('vendor:publish --tag=simple-jetstream-multitenancy-config');
         }
         
