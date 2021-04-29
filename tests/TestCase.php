@@ -2,9 +2,9 @@
 
 namespace Chrisdicarlo\SimpleJetstreamMultitenancy\Tests;
 
+use Chrisdicarlo\SimpleJetstreamMultitenancy\SimpleJetstreamMultitenancyServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Chrisdicarlo\SimpleJetstreamMultitenancy\SimpleJetstreamMultitenancyServiceProvider;
 
 class TestCase extends Orchestra
 {
