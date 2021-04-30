@@ -6,7 +6,6 @@ use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\DB;
 
-
 class AddTenantIdColumnMigrationCommand extends Command
 {
     public $signature = 'sjm:migration {model : Add the tenant_id column to the model table}';
