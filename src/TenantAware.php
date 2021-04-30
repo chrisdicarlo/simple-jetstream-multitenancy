@@ -1,6 +1,8 @@
 <?php
 namespace Chrisdicarlo\SimpleJetstreamMultitenancy;
 
+use Illuminate\Database\Eloquent\Builder;
+
 trait TenantAware
 {
     public static function bootTenantAware()
