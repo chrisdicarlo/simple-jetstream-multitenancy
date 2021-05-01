@@ -12,7 +12,7 @@ trait TenantAware
             
             static::creating(function ($model) use ($tenantModel) {
                 if ($tenantModel == 'App\Models\Team') {
-                    $model->tenant_id = auth()->user()->currentTeam()->id;
+                    $model->tenant_id = auth()->user()->currentTeam->id;
                 } else {
                     $model->tenant_id = auth()->id();
                 }
@@ -21,7 +21,7 @@ trait TenantAware
             static::addGlobalScope('tenant_id', function (Builder $builder) use ($tenantModel) {
                 if (auth()->check()) {
                     if ($tenantModel == 'App\Models\Team') {
-                        return $builder->where('tenant_id', auth()->user()->currentTeam()->id);
+                        return $builder->where('tenant_id', auth()->user()->currentTeam->id);
                     }
                     
                     return $builder->where('tenant_id', auth()->id());
