@@ -12,7 +12,7 @@ trait TenantAware
             
             static::creating(function ($model) use ($tenantModel) {
                 if ($tenantModel == 'App\Models\Team') {
-                    $model = auth()->user()->currentTeam()->id;
+                    $model->tenant_id = auth()->user()->currentTeam()->id;
                 } else {
                     $model->tenant_id = auth()->id();
                 }
