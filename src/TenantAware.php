@@ -29,4 +29,11 @@ trait TenantAware
             });
         }
     }
+
+    public function tenant()
+    {
+	return (config('simple-jetstream-multitenancy.tenant_model') == Team::class)
+		? $this->belongsTo(Team::class, 'tenant_id')
+		: $this->belongsTo(User::class, 'tenant_id');
+    }
 }
