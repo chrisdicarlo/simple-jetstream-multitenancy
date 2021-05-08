@@ -2,6 +2,8 @@
 namespace Chrisdicarlo\SimpleJetstreamMultitenancy;
 
 use Illuminate\Database\Eloquent\Builder;
+use App\Models\User;
+use App\Models\Team;
 
 trait TenantAware
 {
